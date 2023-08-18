@@ -1,0 +1,27 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Edicion de Perfil
+{% endblock titulo %}
+
+
+{% block cabecera %}
+    Edicion de Perfil
+{% endblock cabecera %}
+
+
+{% block contenido %}
+    <br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table}}
+        </table>
+        <button type="submit">Edicion del Usuario</button>
+    </form>
+{% endblock contenido %}
+    
+    
+    

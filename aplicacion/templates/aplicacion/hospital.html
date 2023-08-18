@@ -1,0 +1,42 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Hospitales
+{% endblock titulo %}
+
+
+{% block cabecera %}
+    Bienvenido a la lista de Hospitales
+{% endblock cabecera %}
+    
+
+{% block contenido %}
+<table class="table">
+
+    <thead>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Direccion</th>
+
+        </tr>
+        
+    </thead>
+    <tbody>
+
+    {% for hospital in hospital %} 
+
+    <tr>
+        <td>{{ hospital.id }}</td>
+        <td>{{ hospital.nombre }}</td>
+        <td>{{ hospital.direccion }}</td>
+    </tr>
+    
+    {% endfor %} 
+
+    </tbody>
+</table>
+{% endblock contenido %}

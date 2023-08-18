@@ -1,0 +1,30 @@
+{% extends 'aplicacion/base.html' %} 
+{% load static %} 
+
+{% block titulo %}
+  Pacientes
+{% endblock titulo %} 
+
+{% block cabecera %}
+   Pacientes
+{% endblock cabecera %} 
+
+{% block contenido %}
+<table>
+    <tr>
+        <td width="200"><h2>Pacientes</h2></td>
+        <td>
+            <a
+            href="{% url 'create_paciente' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+            <form action="" method="post">
+                {% csrf_token %}
+              
+                {{ form.as_table}}
+            </form>
+            </a>
+        </td>
+    </tr>
+</table>
+{% endblock contenido%}

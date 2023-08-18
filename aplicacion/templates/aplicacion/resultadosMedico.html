@@ -1,0 +1,40 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Resultados buscados
+{% endblock titulo %}
+
+
+{% block cabecera %}
+    Bienvenido a los resultados que pediste
+{% endblock cabecera %}
+    
+
+{% block contenido %}
+<h2>Medicos del nombre {{ nombre }}</h2>    
+<table class="table">
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Profesión</th>
+        </tr>
+    </thead>
+<tbody>
+{% for medico in medicos %}
+    <tr>
+    <td>{{ medico.id }}</td>
+    <td>{{ medico.nombre }}</td>
+    <td>{{ medico.apellido }}</td>
+    <td>{{ medico.email }}</td>
+    <td>{{ medico.profesion }}</td>
+    </tr>
+{% endfor %}
+</tbody>
+</table> 
+{% endblock contenido %}
+    

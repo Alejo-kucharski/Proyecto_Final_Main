@@ -1,0 +1,32 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Form Hospital
+{% endblock titulo %}
+
+
+{% block cabecera %}
+    Crea un nuevo Hospital
+{% endblock cabecera %}
+
+
+{% block contenido %}
+<body>
+    <h2>Crear Nuevo Hospital</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <table>
+
+            {{ form.as_table }}
+
+        </table>   
+
+    
+
+    <input type="submit" value="Enviar">
+    </form> 
+</body>
+{% endblock contenido %}

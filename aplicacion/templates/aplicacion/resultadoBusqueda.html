@@ -1,0 +1,33 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+    
+    
+
+{% block contenido %}
+<h2>Mascotas que coinciden con tu busqueda</h2>
+<table class="table">
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th>Animal</th>
+        <th>Raza</th>
+        <th>Nombre</th>
+        <th>Numero de Contacto</th>
+        </tr>
+    </thead>
+<tbody>
+{% for animal in animales %}
+    <tr>
+    <td>{{ animal.id }}</td>
+    <td>{{ animal.animal }}</td>
+    <td>{{ animal.raza }}</td>
+    <td>{{ animal.nombre }}</td>
+    <td>{{ animal.numeroContacto }}</td>
+    </tr>
+</tbody>
+</table> 
+{% endfor %}
+{% endblock contenido %}
+    
+
+        

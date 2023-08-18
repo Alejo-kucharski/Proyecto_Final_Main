@@ -1,0 +1,19 @@
+{% extends 'aplicacion/base.html' %} 
+{% load static %} 
+
+{% block titulo %}
+  Dueños
+{% endblock titulo %} 
+
+
+
+{% block contenido %}
+    <h2>Dueños</h2>
+    <form action="" method="POST">
+        {% csrf_token %} 
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock contenido %}

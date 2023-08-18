@@ -1,0 +1,33 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Form Animal
+{% endblock titulo %}
+
+
+{% block cabecera %}
+    Ingresa un nuevo Animal
+{% endblock cabecera %}
+
+
+{% block contenido %}
+<body>
+    <h2>Ingresar un nuevo Animal</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <table>
+
+            {{ form.as_table }}
+
+        </table>   
+
+    
+
+    <input type="submit" value="Enviar">
+    </form> 
+</body>
+{% endblock contenido %}
+    

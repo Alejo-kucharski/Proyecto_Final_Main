@@ -1,0 +1,39 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Historial Clinico
+{% endblock titulo %}
+
+
+{% block cabecera %}
+    Bienvenido a la lista de Historiales Clinicos
+{% endblock cabecera %}
+    
+
+{% block contenido %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha de nacimiento</th>
+            <th>Contacto de emergencia</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for historial in historial %}  
+    <tr>
+        <td>{{ historial.id }}</td>
+        <td>{{ historial.nombre }}</td>
+        <td>{{ historial.apellido }}</td>
+        <td>{{ historial.fecha_nacimiento}}</td>
+        <td>{{historial.contacto_emergencia}}</td>
+    </tr>
+    {% endfor %} 
+    </tbody>
+</table>
+{% endblock contenido %}
+    
+    
