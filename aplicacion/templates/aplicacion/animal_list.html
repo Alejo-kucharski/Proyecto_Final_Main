@@ -1,0 +1,68 @@
+{% extends 'aplicacion/base.html' %} 
+{% load static %} 
+
+{% block titulo %}
+
+Animales
+
+{% endblock titulo %} 
+
+
+{% block contenido %}
+<table>
+    <tr>
+        <td width="200"><h2>Animales</h2></td>
+        <td>
+            <a
+            href="{% url 'createAnimal' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Animal</th>
+      <th>Raza</th>
+      <th>Nombre</th>
+      <th>Numero Contacto</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for animal in animal_list %}
+    <tr>
+      <td>{{ animal.id }}</td>
+      <td>{{ animal.animal }}</td>
+      <td>{{ animal.raza }}</td>
+      <td>{{ animal.nombre }}</td>
+      <td>{{ animal.numeroContacto }}</td>
+
+      <td>
+        <a
+        href="#"
+        class="btn btn-info"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+        ><i class="fa fa-search fa-sm" title="View Record"></i>
+        </a>
+        <a
+          href="#"
+          class="btn btn-primary"
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+          ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+        </a>
+        <a
+          href="#"
+          class="btn btn-danger"
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+          ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock contenido %}

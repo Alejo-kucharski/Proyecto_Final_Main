@@ -35,9 +35,9 @@ urlpatterns = [
 
     # #
     #     # Urls Class Based Views
-    #     path('paciente_list/', PacienteList.as_view(), name="pacientes"),
-    #     path('create_paciente/', PacienteCreate.as_view(), name="create_paciente"),
-    #     path('detail_paciente/<int:pk>/', PacienteDetail.as_view(), name="detail_paciente"),
+          path('animalList/', AnimalList.as_view(), name="animales"),
+          path('createAnimal/', AnimalCreate.as_view(), name="createAnimal"),
+          path('detailAnimal/<int:pk>/', AnimalDetail.as_view(), name="detailAnimal"),
     #     path('update_paciente/<int:pk>/', PacienteUpdate.as_view(), name="update_paciente"),
     #     path('delete_paciente/<int:pk>/', PacienteDelete.as_view(), name="delete_paciente"),
     #     path('delete_paciente/<int:pk>/', PacienteDelete.as_view(), name="delete_paciente"),

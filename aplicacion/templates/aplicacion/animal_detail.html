@@ -1,0 +1,44 @@
+{% extends 'aplicacion/base.html' %} 
+{% load static %} 
+
+{% block titulo %}
+
+ Animal
+
+{% endblock titulo %} 
+
+{% block contenido %}
+<table>
+    <tr>
+        <td><h2>Animal: {{object}}</h2></td>
+    </tr>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+        <th>ID</th>
+        <th>Animal</th>
+        <th>Raza</th>
+        <th>Nombre</th>
+        <th>Numero Contacto</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+      <tr>
+        <td>{{ object.id }}</td>
+        <td>{{ object.animal }}</td>
+        <td>{{ object.raza }}</td>
+        <td>{{ object.nombre }}</td>
+        <td>{{ object.numeroContacto }}</td>
+
+  </tbody>
+</table>
+<a
+href="#"
+class="btn btn-danger"
+style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+><i class="fa fa-share fa-sm" title="List Back">Volver</i>
+</a>
+{% endblock contenido %}

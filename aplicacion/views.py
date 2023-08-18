@@ -31,31 +31,30 @@ def animal(request):
     return render(request, "aplicacion/animales.html", ctx)
 
 # Funcion Dueño
-@login_required
+
 def duenio(request):
     ctx = {"dueños": Duenio.objects.all() }
     return render(request, "aplicacion/dueño.html", ctx)
 
 # Funcion historial clinico
-@login_required
+
 def veterinario(request):
     ctx = {"veterinario": Veterinario.objects.all() }
     return render(request, "aplicacion/veterinario.html", ctx)
 
 # Funcion hospital
-@login_required
+
 def sucursales(request):
     ctx = {"sucursal": Sucursales.objects.all() }
     return render(request, "aplicacion/sucursal.html", ctx)
 
-# Funcion hospital
-@login_required
+
 def turnos(request):
     ctx = {"turnos": Turno.objects.all() }
     return render(request, "aplicacion/turnos.html", ctx)
 
 # Funcion hospital
-@login_required
+
 def preguntasFrecuentes(request):
     ctx = {"preguntasFrecuentes": PreguntasFrecuentes.objects.all() }
     return render(request, "aplicacion/preguntasFrecuentes.html", ctx)
@@ -179,7 +178,6 @@ def updateDuenio(request, id_duenio):
             duenio.email = miForm.cleaned_data.get('email')
             duenio.direccion = miForm.cleaned_data.get('direccion')
             duenio.telefono = miForm.cleaned_data.get('telefono')
-            duenio.mascota = miForm.cleaned_data.get('mascota')
             duenio.save()
             return redirect(reverse_lazy('dueños')) # Redirecciona a la url 'Dueños'
     else: 
@@ -187,8 +185,8 @@ def updateDuenio(request, id_duenio):
                                      'apellido': duenio.apellido,
                                      'email': duenio.email,
                                      'direccion': duenio.direccion,
-                                     'telefono':duenio.telefono,
-                                     'mascota':duenio.mascota}) 
+                                     'telefono':duenio.telefono})
+                                      
     return render(request, "aplicacion/dueñoForm.html", {'form': miForm}) 
 
 
@@ -206,15 +204,14 @@ def createDuenio(request):
             d_apellido = miForm.cleaned_data.get('apellido')
             d_email = miForm.cleaned_data.get('email')
             d_direccion = miForm.cleaned_data.get('direccion')
-            d_telofono = miForm.cleaned_data.get('telefono')
-            d_mascota = miForm.cleaned_data.get('mascota')
+            d_telefono = miForm.cleaned_data.get('telefono')
+            
             dueño = Duenio( 
                             nombre=d_nombre,
                             apellido=d_apellido, 
                             email=d_email, 
                             direccion=d_direccion,
-                            telofono=d_telofono,
-                            mascota=d_mascota
+                            telefono=d_telefono,
                             
                             ) 
             dueño.save()
@@ -226,17 +223,17 @@ def createDuenio(request):
 
 # # Class Based View
 
-# class PacienteList(LoginRequiredMixin, ListView):
-#     model = Paciente
+class AnimalList(ListView):
+    model = Animal
 
-# class PacienteCreate(LoginRequiredMixin, CreateView):
-#     model = Paciente
-#     fields = ['nombre', 'apellido', 'email']
-#     success_url = reverse_lazy('pacientes')
-#     template_name = "aplicacion/create_paciente.html"
+class AnimalCreate(CreateView):
+    model = Animal
+    fields = ['animal', 'raza', 'nombre', 'numeroContacto', 'dueño']
+    success_url = reverse_lazy('animales')
 
-# class PacienteDetail(LoginRequiredMixin, DetailView):
-#     model = Paciente
+
+class AnimalDetail(DetailView):
+    model = Animal
 
 # class PacienteUpdate(LoginRequiredMixin, UpdateView):
 #     model = Paciente

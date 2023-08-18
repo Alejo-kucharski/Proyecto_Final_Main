@@ -18,7 +18,7 @@ class DuenioForm(forms.Form):
     email = forms.EmailField(label="Email", max_length=50, required=False) 
     direccion = forms.CharField(max_length=60)
     telefono = forms.IntegerField()
-    mascota = forms.CharField(max_length=30)
+
 
     
 
